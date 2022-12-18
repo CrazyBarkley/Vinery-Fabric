@@ -21,7 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(FoxEntity.EatBerriesGoal.class)
+@Mixin(FoxEntity.EatSweetBerriesGoal.class)
 public abstract class FoxEntityEatSweetBerriesGoalMixin extends MoveToTargetPosGoal {
     @Final
     @Shadow

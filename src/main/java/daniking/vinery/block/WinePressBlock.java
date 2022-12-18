@@ -18,6 +18,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -161,6 +162,6 @@ public class WinePressBlock extends BlockWithEntity {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(Text.translatable("block.vinery.press.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
+		tooltip.add(new TranslatableText("block.vinery.press.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
 	}
 }

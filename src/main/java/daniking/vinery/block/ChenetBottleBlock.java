@@ -11,6 +11,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -72,12 +73,12 @@ public class ChenetBottleBlock extends ChenetBlock {
         if (Screen.hasShiftDown())
         {
             // Add tooltip JSON key here
-            tooltip.add(Text.translatable(""));
+            tooltip.add(new TranslatableText(""));
         }
         else
         {
             // Add tooltip JSON key here
-            tooltip.add(Text.translatable(""));
+            tooltip.add(new TranslatableText(""));
         }
 
         super.appendTooltip(stack, world, tooltip, options);

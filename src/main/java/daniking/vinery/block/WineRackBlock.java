@@ -19,6 +19,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -116,12 +117,12 @@ public class WineRackBlock extends BlockWithEntity {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(Text.translatable("block.vinery.winebox.tooltip.shift_1").formatted(Formatting.ITALIC, Formatting.GRAY));
+		tooltip.add(new TranslatableText("block.vinery.winebox.tooltip.shift_1").formatted(Formatting.ITALIC, Formatting.GRAY));
 			if (Screen.hasShiftDown()) {
-		tooltip.add(Text.translatable("block.vinery.winerack.tooltip.shift_1"));
-		tooltip.add(Text.translatable("block.vinery.winerack.tooltip.shift_2"));
+		tooltip.add(new TranslatableText("block.vinery.winerack.tooltip.shift_1"));
+		tooltip.add(new TranslatableText("block.vinery.winerack.tooltip.shift_2"));
 	} else {
-		tooltip.add(Text.translatable("block.vinery.breadblock.tooltip.tooltip_shift"));
+		tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip.tooltip_shift"));
 		}
 	}
 }

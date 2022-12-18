@@ -15,6 +15,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
@@ -119,15 +120,15 @@ public class WineBoxBlock extends WineRackBlock {
 
 	@Override
 	public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-		tooltip.add(Text.translatable("block.vinery.canbeplaced.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
+		tooltip.add(new TranslatableText("block.vinery.canbeplaced.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
 
 		if (Screen.hasShiftDown()) {
-			tooltip.add(Text.translatable("block.vinery.winebox.tooltip.shift_1"));
-			tooltip.add(Text.translatable("block.vinery.winebox.tooltip.shift_2"));
-			tooltip.add(Text.translatable("block.vinery.winebox.tooltip.shift_3"));
+			tooltip.add(new TranslatableText("block.vinery.winebox.tooltip.shift_1"));
+			tooltip.add(new TranslatableText("block.vinery.winebox.tooltip.shift_2"));
+			tooltip.add(new TranslatableText("block.vinery.winebox.tooltip.shift_3"));
 
 		} else {
-			tooltip.add(Text.translatable("block.vinery.breadblock.tooltip.tooltip_shift"));
+			tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip.tooltip_shift"));
 		}
 	}
 

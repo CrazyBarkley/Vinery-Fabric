@@ -10,17 +10,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class WineRackGeckoModel extends AnimatedGeoModel<GeckoStorageBlockEntity> {
 
     @Override
-    public Identifier getAnimationResource(GeckoStorageBlockEntity e) {
+    public Identifier getAnimationFileLocation(GeckoStorageBlockEntity e) {
         return new Identifier(Vinery.MODID, "animations/empty.animation.json");
     }
 
     @Override
-    public Identifier getModelResource(GeckoStorageBlockEntity e) {
+    public Identifier getModelLocation(GeckoStorageBlockEntity e) {
         return new Identifier(Vinery.MODID, "geo/" + e.getModelName() + ".geo.json");
     }
 
     @Override
-    public Identifier getTextureResource(GeckoStorageBlockEntity e) {
+    public Identifier getTextureLocation(GeckoStorageBlockEntity e) {
         if (e.getCachedState().getBlock() instanceof WineBoxBlock) {
             return new Identifier(Vinery.MODID, "textures/block/wine_box.png");
         } else if (e.getCachedState().getBlock() instanceof DisplayRackBlock) {

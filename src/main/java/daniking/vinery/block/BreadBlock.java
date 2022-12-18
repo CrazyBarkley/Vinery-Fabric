@@ -15,6 +15,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -125,13 +126,13 @@ public class BreadBlock extends FacingBlock {
 
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(Text.translatable("block.vinery.breadblock.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
+        tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
 
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("block.vinery.breadblock.tooltip.shift_1"));
-            tooltip.add(Text.translatable("block.vinery.breadblock.tooltip.shift_2"));
+            tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip.shift_1"));
+            tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip.shift_2"));
         } else {
-            tooltip.add(Text.translatable("block.vinery.breadblock.tooltip.tooltip_shift"));
+            tooltip.add(new TranslatableText("block.vinery.breadblock.tooltip.tooltip_shift"));
         }
     }
 }

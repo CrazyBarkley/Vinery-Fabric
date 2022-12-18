@@ -7,17 +7,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 
 public class StrawHatModel extends AnimatedGeoModel<StrawHatItem> {
 	@Override
-	public Identifier getModelResource(StrawHatItem object) {
+	public Identifier getModelLocation(StrawHatItem object) {
 		return new VineryIdentifier("geo/straw_hat.geo.json");
 	}
 
 	@Override
-	public Identifier getTextureResource(StrawHatItem object) {
+	public Identifier getTextureLocation(StrawHatItem object) {
 		return new VineryIdentifier("textures/item/straw_hat.png");
 	}
 
 	@Override
-	public Identifier getAnimationResource(StrawHatItem animatable) {
+	public Identifier getAnimationFileLocation(StrawHatItem animatable) {
 		return new VineryIdentifier("animations/straw_hat.animation.json");
 	}
 }

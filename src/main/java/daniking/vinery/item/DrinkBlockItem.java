@@ -14,6 +14,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
@@ -37,10 +38,10 @@ public class DrinkBlockItem extends BlockItem {
         List<Pair<StatusEffectInstance, Float>> list2 = getFoodComponent() != null ? getFoodComponent().getStatusEffects() : Lists.newArrayList();
         List<Pair<EntityAttribute, EntityAttributeModifier>> list3 = Lists.newArrayList();
         if (list2.isEmpty()) {
-            tooltip.add(Text.translatable("effect.none").formatted(Formatting.GRAY));
+            tooltip.add(new TranslatableText("effect.none").formatted(Formatting.GRAY));
         } else {
             for(Pair<StatusEffectInstance, Float> statusEffectInstance : list2) {
-                MutableText mutableText = Text.translatable(statusEffectInstance.getFirst().getTranslationKey());
+                MutableText mutableText = new TranslatableText(statusEffectInstance.getFirst().getTranslationKey());
                 StatusEffect statusEffect = statusEffectInstance.getFirst().getEffectType();
                 Map<EntityAttribute, EntityAttributeModifier> map = statusEffect.getAttributeModifiers();
                 if (!map.isEmpty()) {
@@ -56,13 +57,13 @@ public class DrinkBlockItem extends BlockItem {
                 }
 
                 if (world != null) {
-                    mutableText = Text.translatable(
+                    mutableText = new TranslatableText(
                             "potion.withAmplifier",
-                            mutableText, Text.translatable("potion.potency." + WineYears.getEffectLevel(stack, world)));
+                            mutableText, new TranslatableText("potion.potency." + WineYears.getEffectLevel(stack, world)));
                 }
 
                 if (statusEffectInstance.getFirst().getDuration() > 20) {
-                    mutableText = Text.translatable(
+                    mutableText = new TranslatableText(
                             "potion.withDuration",
                             mutableText, StatusEffectUtil.durationToString(statusEffectInstance.getFirst(), statusEffectInstance.getSecond()));
                 }
@@ -72,8 +73,7 @@ public class DrinkBlockItem extends BlockItem {
         }
 
         if (!list3.isEmpty()) {
-            tooltip.add(Text.empty());
-            tooltip.add(Text.translatable("potion.whenDrank").formatted(Formatting.DARK_PURPLE));
+            tooltip.add(new TranslatableText("potion.whenDrank").formatted(Formatting.DARK_PURPLE));
 
             for(Pair<EntityAttribute, EntityAttributeModifier> pair : list3) {
                 EntityAttributeModifier entityAttributeModifier3 = pair.getSecond();
@@ -87,24 +87,23 @@ public class DrinkBlockItem extends BlockItem {
 
                 if (d > 0.0) {
                     tooltip.add(
-                            Text.translatable(
+                            new TranslatableText(
                                     "attribute.modifier.plus." + entityAttributeModifier3.getOperation().getId(),
-                                    ItemStack.MODIFIER_FORMAT.format(e), Text.translatable(pair.getFirst().getTranslationKey()))
+                                    ItemStack.MODIFIER_FORMAT.format(e), new TranslatableText(pair.getFirst().getTranslationKey()))
                                     .formatted(Formatting.BLUE)
                     );
                 } else if (d < 0.0) {
                     e *= -1.0;
                     tooltip.add(
-                            Text.translatable(
+                            new TranslatableText(
                                     "attribute.modifier.take." + entityAttributeModifier3.getOperation().getId(),
-                                    ItemStack.MODIFIER_FORMAT.format(e), Text.translatable(pair.getFirst().getTranslationKey()))
+                                    ItemStack.MODIFIER_FORMAT.format(e), new TranslatableText(pair.getFirst().getTranslationKey()))
                                     .formatted(Formatting.RED)
                     );
                 }
             }
         }
-        
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("tooltip.vinery.year").formatted(Formatting.GRAY).append(Text.of(" " + WineYears.getWineYear(stack))));
+
+        tooltip.add(new TranslatableText("tooltip.vinery.year").formatted(Formatting.GRAY).append(Text.of(" " + WineYears.getWineYear(stack))));
     }
 }

@@ -17,17 +17,17 @@ public class SimpleGeoModel<T extends LivingEntity & IAnimatable> extends Animat
     }
 
     @Override
-    public Identifier getAnimationResource(T entity) {
+    public Identifier getAnimationFileLocation(T entity) {
         return animation;
     }
 
     @Override
-    public Identifier getModelResource(T entity) {
+    public Identifier getModelLocation(T entity) {
         return model;
     }
 
     @Override
-    public Identifier getTextureResource(T entity) {
+    public Identifier getTextureLocation(T entity) {
         return texture;
     }
 }

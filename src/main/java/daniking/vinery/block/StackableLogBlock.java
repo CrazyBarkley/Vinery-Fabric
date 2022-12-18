@@ -23,19 +23,20 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 
 import java.util.List;
+import java.util.Random;
 
 public class StackableLogBlock extends SlabBlock implements Waterloggable {
     public static final EnumProperty<SlabType> TYPE = Properties.SLAB_TYPE;
@@ -118,13 +119,13 @@ public class StackableLogBlock extends SlabBlock implements Waterloggable {
 
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(Text.translatable("block.vinery.log.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
+        tooltip.add(new TranslatableText("block.vinery.log.tooltip").formatted(Formatting.ITALIC, Formatting.GRAY));
 
         if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("block.vinery.log.tooltip.shift_1"));
-            tooltip.add(Text.translatable("block.vinery.log.tooltip.shift_2"));
+            tooltip.add(new TranslatableText("block.vinery.log.tooltip.shift_1"));
+            tooltip.add(new TranslatableText("block.vinery.log.tooltip.shift_2"));
         } else {
-            tooltip.add(Text.translatable("block.vinery.log.tooltip.tooltip_shift"));
+            tooltip.add(new TranslatableText("block.vinery.log.tooltip.tooltip_shift"));
         }
     }
 
